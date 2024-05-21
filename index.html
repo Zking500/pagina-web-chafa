@@ -34,30 +34,50 @@
 </head>
 <body>
     <div class="container">
-        <h1>Ingresa un número del 1 al 9</h1>
-        <input type="number" id="numberInput" min="0" max="9">
-        <div class="message" id="message"></div>
+        <h1>Ingresa un número </h1>
+        <input type="number" id="numberInput1" min="1" max="9" placeholder="1-9">
+        <div class="message" id="message1"></div>
+        <div class="second-input" style="display: none;">
+            <h2>Ingresa otro número</h2>
+            <input type="number" id="numberInput2" min="1" max="9" placeholder="1-9">
+            <div class="message" id="message2"></div>
+        </div>
     </div>
 
     <script>
-        const numberInput = document.getElementById('numberInput');
-        const message = document.getElementById('message');
+        const numberInput1 = document.getElementById('numberInput1');
+        const message1 = document.getElementById('message1');
+        const secondInputContainer = document.querySelector('.second-input');
+        const numberInput2 = document.getElementById('numberInput2');
+        const message2 = document.getElementById('message2');
 
-        numberInput.addEventListener('input', () => {
-            const value = parseInt(numberInput.value, 10);
-            let result = '';
+        numberInput1.addEventListener('input', () => {
+            const value1 = parseInt(numberInput1.value, 10);
+            let result1 = '';
 
-            if (value <= 6) {
-                result += 'El evento B ocurrido, ';
-            }
-            if (value < 3) {
-                result += 'El evento A ocurrido debido a B';
-            }
-            if (value > 9) {
-                result += 'El numero debe ser menor que 9';
+            if (value1 <= 6) {
+                result1 = 'El evento B ocurrido.';
+                secondInputContainer.style.display = 'block';
+            } else {
+                result1 = '';
+                secondInputContainer.style.display = 'none';
+                message2.textContent = ''; // Clear the second message if the second input is hidden
             }
 
-            message.textContent = result;
+            message1.textContent = result1;
+        });
+
+        numberInput2.addEventListener('input', () => {
+            const value2 = parseInt(numberInput2.value, 10);
+            let result2 = '';
+
+            if (value2 < 3) {
+                result2 = 'El evento A.';
+            } else {
+                result2 = '';
+            }
+
+            message2.textContent = result2;
         });
     </script>
 </body>
