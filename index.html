@@ -34,7 +34,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Ingresa un número</h1>
+        <h1>Ingresa un número del numero del 1 al 9</h1>
         <input type="number" id="numberInput" min="0" max="9">
         <div class="message" id="message"></div>
     </div>
@@ -52,6 +52,9 @@
             }
             if (value < 3) {
                 result += 'El evento A ocurrido debido a B';
+            }
+            if (value > 9) {
+                result += 'El numero debe ser , menor que 9';
             }
 
             message.textContent = result;
